@@ -72,11 +72,11 @@ public class Main implements Runnable {
 					      view, 
 					      autoButton, 
 					      stopButton, 
-						  nextButton, 
-						  undoButton, 
-						  newGameButton,
-						  saveAsMenuItem,
-						  openFileMenuItem);
+					      nextButton, 
+					      undoButton, 
+					      newGameButton,
+					      saveAsMenuItem,
+					      openFileMenuItem);
 		
 		autoButton.addActionListener(actions);
 		stopButton.addActionListener(actions);
