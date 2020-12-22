@@ -31,12 +31,12 @@ public class Actions implements ActionListener{
 	public Actions(BoardModel board,
 		       BoardView boardView,
 		       JButton autoButton,
-				   JButton stopButton,
-				   JButton nextButton,
-				   JButton undoButton,
-				   JButton newGameButton,
-				   JMenuItem saveAsMenuItem,
-				   JMenuItem openFileMenuItem) {
+		       JButton stopButton,
+		       JButton nextButton,
+		       JButton undoButton,
+		       JButton newGameButton,
+		       JMenuItem saveAsMenuItem,
+		       JMenuItem openFileMenuItem) {
 		
 		this.board = board;
 		this.boardView = boardView;
