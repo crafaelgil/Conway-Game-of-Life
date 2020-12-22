@@ -14,13 +14,19 @@ import java.awt.event.WindowEvent;
 import java.awt.BorderLayout;
 
 public class Main implements Runnable {
-	BoardModel model = new BoardModel(12,12);
 	
 	public static void main(String[] args) { 
 		SwingUtilities.invokeLater(new Main());
 	}
 	
 	public void run() {
+		InputDimensions inputDimensions = new InputDimensions();
+		
+		int cols = inputDimensions.getDimension("columns");
+		int rows = inputDimensions.getDimension("rows");
+		
+		
+		BoardModel model = new BoardModel(rows,cols);
 		String title = "Lifegame";
 		
 		JFrame frame = new JFrame();
