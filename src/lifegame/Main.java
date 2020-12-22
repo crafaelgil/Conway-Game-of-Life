@@ -71,7 +71,7 @@ public class Main implements Runnable {
 		Actions actions = new Actions(model, 
 					      view, 
 					      autoButton, 
-						  stopButton, 
+					      stopButton, 
 						  nextButton, 
 						  undoButton, 
 						  newGameButton,
