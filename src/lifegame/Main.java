@@ -69,8 +69,8 @@ public class Main implements Runnable {
 		buttonPanel.add(newGameButton);
 		
 		Actions actions = new Actions(model, 
-				view, 
-				autoButton, 
+					view, 
+					autoButton, 
 									  stopButton, 
 									  nextButton, 
 									  undoButton, 
