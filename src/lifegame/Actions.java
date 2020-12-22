@@ -29,8 +29,8 @@ public class Actions implements ActionListener{
 	JFileChooser fileChooser;
 	
 	public Actions(BoardModel board,
-			BoardView boardView,
-		    JButton autoButton,
+		   BoardView boardView,
+		   JButton autoButton,
 				   JButton stopButton,
 				   JButton nextButton,
 				   JButton undoButton,
