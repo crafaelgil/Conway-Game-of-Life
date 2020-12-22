@@ -29,7 +29,7 @@ public class Actions implements ActionListener{
 	JFileChooser fileChooser;
 	
 	public Actions(BoardModel board,
-		  BoardView boardView,
+				BoardView boardView,
 		  JButton autoButton,
 				   JButton stopButton,
 				   JButton nextButton,
