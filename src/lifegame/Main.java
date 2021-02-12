@@ -3,9 +3,6 @@ package lifegame;
 import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,28 +17,13 @@ public class Main implements Runnable {
 	}
 	
 	public void run() {
-		InputDimensions inputDimensions = new InputDimensions();
+		BoardModel model = new BoardModel(12,12);
 		
-		int cols = inputDimensions.getDimension("columns");
-		int rows = inputDimensions.getDimension("rows");
-		
-		
-		BoardModel model = new BoardModel(rows,cols);
 		String title = "Lifegame";
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle(title);
-		
-		JMenuBar menuBar = new JMenuBar();
-		JMenu fileMenu = new JMenu("File");
-		JMenuItem saveAsMenuItem = new JMenuItem("Save As");
-		JMenuItem openFileMenuItem = new JMenuItem("Open File");
-		
-		fileMenu.add(saveAsMenuItem);
-		fileMenu.add(openFileMenuItem);
-		menuBar.add(fileMenu);
-		frame.setJMenuBar(menuBar);
 		
 		JPanel base = new JPanel();
 		frame.setContentPane(base);
@@ -74,18 +56,13 @@ public class Main implements Runnable {
 					      stopButton, 
 					      nextButton, 
 					      undoButton, 
-					      newGameButton,
-					      saveAsMenuItem,
-					      openFileMenuItem);
+					      newGameButton);
 		
 		autoButton.addActionListener(actions);
 		stopButton.addActionListener(actions);
 		nextButton.addActionListener(actions);
 		undoButton.addActionListener(actions);
 		newGameButton.addActionListener(actions);
-		
-		saveAsMenuItem.addActionListener(actions);
-		openFileMenuItem.addActionListener(actions);
 		
 		frame.pack();
 		frame.addWindowListener(new WindowAdapter() {

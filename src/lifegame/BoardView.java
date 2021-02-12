@@ -37,7 +37,7 @@ public class BoardView extends JPanel implements BoardListener, MouseListener, M
 	
 	private void computeEachCellWidth() {
 		cellWidth = (int) (Math.min(this.getWidth(), this.getHeight())/boardModel.getCols());
-	}
+	} 
 	
 	private void computeMargins() {
 		horizontalMargin = (int) ((this.getWidth() - boardModel.getCols() * cellWidth) / 2);
