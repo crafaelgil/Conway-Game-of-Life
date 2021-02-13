@@ -2,12 +2,6 @@ package lifegame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -34,9 +28,7 @@ public class Actions implements ActionListener{
 		       JButton stopButton,
 		       JButton nextButton,
 		       JButton undoButton,
-		       JButton newGameButton,
-		       JMenuItem saveAsMenuItem,
-		       JMenuItem openFileMenuItem) {
+		       JButton newGameButton) {
 		
 		this.board = board;
 		this.boardView = boardView;
@@ -45,13 +37,11 @@ public class Actions implements ActionListener{
 		this.nextButton = nextButton;
 		this.undoButton = undoButton;
 		this.newGameButton = newGameButton;
-		this.saveAsMenuItem = saveAsMenuItem;
-		this.openFileMenuItem = openFileMenuItem;
 		
 		this.stopButton.setEnabled(false);
+		this.undoButton.setEnabled(false);
+		
 		timer = new Timer();
-		fileChooser = new JFileChooser();
-		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 	}
 	
 	private class MyTimerTask extends TimerTask {
@@ -70,6 +60,9 @@ public class Actions implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == autoButton) {
 			toggleStateOfButtons();
+			if(board.pastBoards.size() == 0) {
+				undoButton.setEnabled(false);
+			}
 			
 			timer.scheduleAtFixedRate(new MyTimerTask(), 500, 500);
 		}
@@ -78,6 +71,7 @@ public class Actions implements ActionListener{
 		}
 		else if(e.getSource() == nextButton) {
 			board.next();
+			undoButton.setEnabled(true);
 			boardView.repaint();
 		}
 		else if(e.getSource() == undoButton) {
@@ -94,12 +88,6 @@ public class Actions implements ActionListener{
 			Main newGame = new Main();
 			newGame.run();
 		}
-		else if(e.getSource() == saveAsMenuItem) {
-			saveNewFile();
-		}
-		else if(e.getSource() == openFileMenuItem) {
-			openExistingFile();
-		}
 	}
 	
 	private void toggleStateOfButtons() {
@@ -108,30 +96,6 @@ public class Actions implements ActionListener{
 		nextButton.setEnabled(!stopButton.isEnabled());
 		undoButton.setEnabled(!undoButton.isEnabled());
 		newGameButton.setEnabled(!newGameButton.isEnabled());
-	}
-	
-	private void saveNewFile() {
-		int returnValue = fileChooser.showSaveDialog(null);
-		
-		if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File file = new File("game.bin");
-            
-            
-            System.out.println("Saving: " + file.getName() + ".");
-        } else {
-        	System.out.println("Save command cancelled by user.");
-        }
-	}
-	
-	private void openExistingFile() {
-		int returnVal = fileChooser.showOpenDialog(null);
-
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            System.out.println("Opening: " + file.getName() + ".");
-        } else {
-        	System.out.println("Open command cancelled by user.");
-        }
 	}
 	
 	public synchronized void closeThread() {

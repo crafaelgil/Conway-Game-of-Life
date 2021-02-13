@@ -7,7 +7,7 @@ public class BoardModel {
     private boolean[][] cells;
     private ArrayList<BoardListener> listeners;
 	private int[][] numberOfNeighbours;
-	private ArrayList<boolean[][]> pastBoards;
+	public ArrayList<boolean[][]> pastBoards;
     
     public BoardModel(int c, int r) {
         cols = c;
@@ -58,9 +58,9 @@ public class BoardModel {
     }
     
     public synchronized void next() {
+    	saveBoard();
     	countCellsAliveForEachCell();
     	modifyCells();
-    	saveBoard();
     }
     
     private void modifyCells() {
