@@ -16,7 +16,7 @@ git clone git@github.com:crafaelgil/Game-of-Life.git
 ```
 Then, inside the src directory, execute the following two commands:
 
-```zsh
+```bash
 javac -cp . lifegame/*.java
 
 java -cp . lifegame/Main
