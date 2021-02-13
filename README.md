@@ -1,29 +1,23 @@
-# Foobar
+# Conway's Game of Life
 
-Foobar is a Python library for dealing with word pluralization.
+Java implementation of the well known Conway's Game of Life that supports alive cell selection via cursor selection as well as manual and automatic reproduction of the game. 
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
+![Getting Started](./img.png)
 
 ## Usage
 
-```python
-import foobar
+Execute the following command to clone the source code and open the folder called Game-of-Life.
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```
+git clone git@github.com:crafaelgil/Game-of-Life.git
+```
+Then, inside the src directory, execute the following two commands:
+
+```zsh
+javac -cp . lifegame/*.java
+
+java -cp . lifegame/Main
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+This will compile the code and run the main window. To create a new game simple click on the New Game button.
 
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
