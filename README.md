@@ -3,8 +3,8 @@
 Java implementation of the well known Conway's Game of Life that supports alive cell selection via cursor selection as well as manual and automatic reproduction of the game. 
 
 <p float="center">
-  <img src="./img-1.png" width="490" />
-  <img src="./img-2.png" width="488" /> 
+  <img src="./img-1.png" width="500" />
+  <img src="./img-2.png" width="495" /> 
 </p>
 
 ## Usage
