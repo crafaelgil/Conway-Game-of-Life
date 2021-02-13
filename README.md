@@ -4,7 +4,7 @@ Java implementation of the well known Conway's Game of Life that supports alive 
 
 <p float="center">
   <img src="./img-1.png" width="500" />
-  <img src="./img-2.png" width="495" /> 
+  <img src="./img-2.png" width="492" /> 
 </p>
 
 ## Usage
